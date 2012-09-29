@@ -23,30 +23,7 @@ public class Program {
             if (i1 == 1) {
                 displayBooks();
             } else if (i1 == 2) {
-                int i2 = 0;
-                try {
-                    i2 = Integer.parseInt(getUserInput(" Please enter the number of the book you wish to checkout: "));
-                } catch (Exception e) {
-                    System.out.println("Enter a valid integer!!");
-
-                }
-                switch (i2) {
-                    case 1:
-                        sucessfulCheckOut();
-                        break;
-                    case 2:
-                        sucessfulCheckOut();
-                        break;
-                    case 3:
-                        sucessfulCheckOut();
-                        break;
-                    case 4:
-                        sucessfulCheckOut();
-                        break;
-                    default:
-                        System.out.println("\n");
-                        System.out.println("Sorry we don't have that book yet.");
-                }
+                checkOutBooks();
             } else if (i1 == 3) {
                 if (loggedIn()) {
                     System.out.println("\n");
@@ -60,22 +37,7 @@ public class Program {
                 displayMovies();
             } else if (i1 == 5) {
                 clearLogin();
-                try {
-                    String libraryNumber = getUserInput("Enter your library number");
-                    if (validLibraryNumber(libraryNumber)) {
-                        try {
-                            String password = getUserInput("Enter your Password:");
-                            if (validPassword(password)) {
-                                loggedIn = true;
-                                savedLibraryNumber = libraryNumber;
-                            }
-                        } catch (Exception e) {
-
-                        }
-                    }
-                } catch (Exception e) {
-
-                }
+                login();
 
             } else if (i1 == 9) {
                 System.out.println("Quitting...");
@@ -84,6 +46,45 @@ public class Program {
                 System.out.println("\n");
                 System.out.println("Enter a valid integer!!");
             }
+        }
+    }
+
+    private static void login() {
+        try {
+            String libraryNumber = getUserInput("Enter your library number");
+            if (validLibraryNumber(libraryNumber)) {
+                try {
+                    String password = getUserInput("Enter your Password:");
+                    if (validPassword(password)) {
+                        loggedIn = true;
+                        savedLibraryNumber = libraryNumber;
+                    }
+                } catch (Exception e) {
+
+                }
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    private static void checkOutBooks() {
+        int i2 = 0;
+        try {
+            i2 = Integer.parseInt(getUserInput(" Please enter the number of the book you wish to checkout: "));
+        } catch (Exception e) {
+            System.out.println("Enter a valid integer!!");
+
+        }
+        switch (i2) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                sucessfulCheckOut();
+                break;
+            default:
+                System.out.println("\nSorry we don't have that book yet.");
         }
     }
 
@@ -139,7 +140,6 @@ public class Program {
         return loggedIn;
     }
 
-
     private static void clearLogin() {
         loggedIn = false;
         savedLibraryNumber = "";
@@ -162,6 +162,5 @@ public class Program {
         }
         return inputLine;
     }
-
 }
 
