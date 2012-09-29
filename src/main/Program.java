@@ -15,7 +15,7 @@ public class Program {
             System.out.println("*                Menu                                    *");
             System.out.println("*         =====================                          *");
             System.out.println("*         1. List Book Catalog                           *");
-            System.out.println("***********         2. Check out Book                              *");
+            System.out.println("*         2. Check out Book                              *");
             System.out.println("*         3. Check Library Number                        *");
             System.out.println("*         4. Movie Listing                               *");
             System.out.println("*         5. Login                                       *");
@@ -51,20 +51,16 @@ public class Program {
                 }
                 switch (i2) {
                     case 1:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
+                        sucessfulCheckOut();
                         break;
                     case 2:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
+                        sucessfulCheckOut();
                         break;
                     case 3:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
+                        sucessfulCheckOut();
                         break;
                     case 4:
-                        System.out.println("\n");
-                        System.out.println(" Thank You! Enjoy the book.");
+                        sucessfulCheckOut();
                         break;
                     default:
                         System.out.println("\n");
@@ -80,16 +76,16 @@ public class Program {
                     System.out.println("Please talk to Librarian. Thank you.");
                 }
             } else if (i1 == 4) {
-                System.out.println(createMovie("Rocky", "John G. Avildsen", "10"));
-                System.out.println(createMovie("Rocky II", "John G. Avildsen", "9"));
-                System.out.println(createMovie("Rocky III", "John G. Avildsen", "8"));
-                System.out.println(createMovie("Rocky IV", "John G. Avildsen", "7"));
-                System.out.println(createMovie("Rocky V", "John G. Avildsen", "8"));
-                System.out.println(createMovie("Drainage", "Francisco Trindade", "N/A"));
-                System.out.println(createMovie("The Shawshank Redemption", "Frank Darabont", "10"));
-                System.out.println(createMovie("The Godfather", "Francis Ford Coppola", "7"));
-                System.out.println(createMovie("Inception", "Frank Darabont", "10"));
-                System.out.println(createMovie("Pulp Fiction", "Quentin Tarantino", "6"));
+                System.out.println(displayMovieDetails("Rocky", "John G. Avildsen", "10"));
+                System.out.println(displayMovieDetails("Rocky II", "John G. Avildsen", "9"));
+                System.out.println(displayMovieDetails("Rocky III", "John G. Avildsen", "8"));
+                System.out.println(displayMovieDetails("Rocky IV", "John G. Avildsen", "7"));
+                System.out.println(displayMovieDetails("Rocky V", "John G. Avildsen", "8"));
+                System.out.println(displayMovieDetails("Drainage", "Francisco Trindade", "N/A"));
+                System.out.println(displayMovieDetails("The Shawshank Redemption", "Frank Darabont", "10"));
+                System.out.println(displayMovieDetails("The Godfather", "Francis Ford Coppola", "7"));
+                System.out.println(displayMovieDetails("Inception", "Frank Darabont", "10"));
+                System.out.println(displayMovieDetails("Pulp Fiction", "Quentin Tarantino", "6"));
             } else if (i1 == 5) {
                 clearLogin();
                 System.out.println("Enter your library number");
@@ -121,6 +117,11 @@ public class Program {
         }
     }
 
+    private static void sucessfulCheckOut() {
+        System.out.println("\n");
+        System.out.println(" Thank You! Enjoy the book.");
+    }
+
     private static boolean validPassword(String password) {
         return "bhaisahab".equals(password);
     }
@@ -139,7 +140,7 @@ public class Program {
         savedLibraryNumber = "";
     }
 
-    private static String createMovie(String movieTitle, String movieDirector, String movieRanking) {
+    private static String displayMovieDetails(String movieTitle, String movieDirector, String movieRanking) {
         return movieTitle + " - Director: " + movieDirector + " Rating: " + movieRanking;
     }
 }
