@@ -26,25 +26,20 @@ public class Program {
                 checkOutBooks();
             } else if (i1 == 3) {
                 if (loggedIn()) {
-                    System.out.println("\n");
-                    System.out.println("Your library number is " + savedLibraryNumber);
+                    System.out.println("\nYour library number is " + savedLibraryNumber);
                 } else {
-
-                    System.out.println("\n");
-                    System.out.println("Please talk to Librarian. Thank you.");
+                    System.out.println("\nPlease talk to Librarian. Thank you.");
                 }
             } else if (i1 == 4) {
                 displayMovies();
             } else if (i1 == 5) {
                 clearLogin();
                 login();
-
             } else if (i1 == 9) {
                 System.out.println("Quitting...");
                 break;
             } else {
-                System.out.println("\n");
-                System.out.println("Enter a valid integer!!");
+                System.out.println("\nEnter a valid integer!!");
             }
         }
     }
