@@ -55,11 +55,11 @@ public class Program {
                         savedLibraryNumber = libraryNumber;
                     }
                 } catch (Exception e) {
-
+                    System.out.println(e);
                 }
             }
         } catch (Exception e) {
-
+            System.out.println(e);
         }
     }
 
@@ -76,7 +76,7 @@ public class Program {
             case 2:
             case 3:
             case 4:
-                sucessfulCheckOut();
+                successfulCheckOut();
                 break;
             default:
                 System.out.println("\nSorry we don't have that book yet.");
@@ -118,9 +118,8 @@ public class Program {
         System.out.println(displayMovieDetails("Pulp Fiction", "Quentin Tarantino", "6"));
     }
 
-    private static void sucessfulCheckOut() {
-        System.out.println("\n");
-        System.out.println(" Thank You! Enjoy the book.");
+    private static void successfulCheckOut() {
+        System.out.println("\nThank You! Enjoy the book.");
     }
 
     private static boolean validPassword(String password) {
