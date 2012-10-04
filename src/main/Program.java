@@ -12,30 +12,30 @@ public class Program {
         while (true) {
             displayMenu();
 
-            int i1 = 0;
+            int userChoice = 0;
             try {
                 String value = getUserInput("Your Selection: ");
-                i1 = Integer.parseInt(value);
+                userChoice = Integer.parseInt(value);
             } catch (Exception e) {
                 System.out.println("Enter a valid integer!!");
             }
 
-            if (i1 == 1) {
+            if (userChoice == 1) {
                 displayBooks();
-            } else if (i1 == 2) {
+            } else if (userChoice == 2) {
                 checkOutBooks();
-            } else if (i1 == 3) {
+            } else if (userChoice == 3) {
                 if (loggedIn()) {
                     System.out.println("\nYour library number is " + savedLibraryNumber);
                 } else {
                     System.out.println("\nPlease talk to Librarian. Thank you.");
                 }
-            } else if (i1 == 4) {
+            } else if (userChoice == 4) {
                 displayMovies();
-            } else if (i1 == 5) {
+            } else if (userChoice == 5) {
                 clearLogin();
                 login();
-            } else if (i1 == 9) {
+            } else if (userChoice == 9) {
                 System.out.println("Quitting...");
                 break;
             } else {
@@ -49,8 +49,7 @@ public class Program {
             String libraryNumber = getUserInput("Enter your library number");
             if (validLibraryNumber(libraryNumber)) {
                 try {
-                    String password = getUserInput("Enter your Password:");
-                    if (validPassword(password)) {
+                    if (validPassword(getUserInput("Enter your Password:"))) {
                         loggedIn = true;
                         savedLibraryNumber = libraryNumber;
                     }
@@ -64,14 +63,14 @@ public class Program {
     }
 
     private static void checkOutBooks() {
-        int i2 = 0;
+        int bookCount = 0;
         try {
-            i2 = Integer.parseInt(getUserInput(" Please enter the number of the book you wish to checkout: "));
+            bookCount = Integer.parseInt(getUserInput(" Please enter the number of the book you wish to checkout: "));
         } catch (Exception e) {
             System.out.println("Enter a valid integer!!");
 
         }
-        switch (i2) {
+        switch (bookCount) {
             case 1:
             case 2:
             case 3:
